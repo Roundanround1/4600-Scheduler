@@ -236,4 +236,16 @@ func SJFSchedule (w io.Writer, title string, processes []Process)
 	FCFSSchedule(w, title, processes)
 }
 
+func SJFPrioritySchedule(w io.Writer, title string, processes []Process)
+{
+	sort.Slice(processes, func(i, j int) bool
+		   {
+			   if processes[i].Priority == processes[j].Priority 
+			   {
+				   return processes[i].Priority < processes[j].Priority
+			   })
+
+			   FCFSSchedule(w, title,, processes)
+}	   
+
 //endregion
