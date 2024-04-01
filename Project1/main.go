@@ -227,4 +227,13 @@ func mustStrToInt(s string) int64 {
 	return i
 }
 
+func SJFSchedule (w io.Writer, title string, processes []Process)
+{
+	sort.Slice(processes, func(i, j int) bool
+		   {
+			   return processes[i].BurstDuration < processes[j].BurstDuration
+		   })
+	FCFSSchedule(w, title, processes)
+}
+
 //endregion
